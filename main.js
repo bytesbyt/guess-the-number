@@ -1,6 +1,3 @@
-// random number between 1 and 100
-
-
 let computerNum = 0;
 let playButton = document.getElementById("play-button");
 let userInput = document.getElementById("user-input");
@@ -36,7 +33,6 @@ function play() {
 
     chances -- ;
     chanceArea.textContent = `Remaining chances: ${chances}`;
-    console.log("chances is",chances);
 
     if (userValue < computerNum){
         resultArea.textContent = "Up!!";    
@@ -47,7 +43,6 @@ function play() {
         gameOver = true;
     }
     history.push(userValue);
-    console.log("history is",history);
 
     if (chances < 1){
         gameOver = true;
@@ -59,19 +54,14 @@ function play() {
 }
 function reset() {
     userInput.value = "";
-    
+    gameOver = false;
+    chances = 5;
+    chanceArea.textContent = `Remaining chances: ${chances}`;
+    playButton.disabled = false;
+    history = [];
     pickRandomNumber();
 
     resultArea.textContent = "결과값이 여기에 나옵니다.";
 }
 
 pickRandomNumber();
-
-
-
-
-
-
-
-
-
